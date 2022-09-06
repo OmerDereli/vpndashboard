@@ -11,7 +11,7 @@
 }
 
 .SidebarList .row {
-    width: auto;
+    width: 250px;
     height: 60px;
     list-style-type: none;
     margin: 0;

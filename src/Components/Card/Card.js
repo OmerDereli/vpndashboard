@@ -3,37 +3,53 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {CardActionArea} from '@mui/material';
+import {CardActionArea, CardActions} from '@mui/material';
+import almanya from "../../assets/images/almanya.png";
+import "../MainDash/MainDash.css";
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import "../MainDash/Label.css"
+import Uploadimage from "../UploadImage/Uploadimage";
 
 
 export default function ActionAreaCard(props) {
+    /*
+        function handleDelete() {
+            localStorage.removeItem("omerx")
+            alert("Sildin abi");
+            console.log("Button clicked");
+        }
+    */
 
-    function handleDelete() {
-        alert("Sildin abi");
-        console.log("Button clicked");
-    }
-
-    const {title, subtitle, src, onClick} = props;
+    const {id, title, subtitle, src = almanya, ipadress, onClick, onClickDelete} = props;
     return (
-                <Card sx={{maxWidth: 345}} onClick={onClick}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            src={src}
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                {title}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                {subtitle}
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <div>
-                        <button type="button" onClick={handleDelete} className="btn btn-md btn-outline-danger">Delete</button>
-                    </div>
-                </Card>
-            );
-            }
+        <Card className="cards" sx={{maxWidth: 250}} onClick={onClick}>
+
+                <CardMedia
+                           className="card__image"
+                           component="img"
+                           height="140"
+                           src= {almanya}
+                />
+
+                <CardContent className="cards">
+
+                    <Typography component="div">
+                        {title}<br/>
+                        {subtitle}<br/>
+                        {ipadress}<br/>
+                    </Typography>
+                </CardContent>
+            <CardActions>
+                <div>
+                    <Uploadimage />
+                    <button className="button-88" onClick={() => onClickDelete(id)}>
+                        <DeleteOutlinedIcon/>
+                        Delete
+                    </button>
+                </div>
+            </CardActions>
+
+        </Card>
+
+    );
+}

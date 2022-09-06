@@ -1,13 +1,18 @@
-import './App.css';
+import "./App.css";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import MainDash from "./Components/MainDash/MainDash";
+import UploadImage from "./Components/UploadImage/Uploadimage";
+function App() {
 
-    function App() {
-    return <div className="App">
+
+  return (
+    <div className="App">
+      <div className="main">
         <Sidebar/>
-        <MainDash/>
+        <MainDash />
+      </div>
     </div>
-
+  );
 }
 
 export default App;
